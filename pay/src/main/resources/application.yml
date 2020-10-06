@@ -1,15 +1,15 @@
 spring:
   application:
-    name: order-service
+    name: pay-service
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/demo-order?characterEncoding=UTF-8
+    url: jdbc:mysql://127.0.0.1:3306/demo-pay?characterEncoding=UTF-8
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
     password:
   jpa:
     generate-ddl: true
 server:
-  port: 9090
+  port: 9080
 tx-lcn:
   client:
     manager-address: 127.0.0.1:8070,127.0.0.1:8071
@@ -17,4 +17,3 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:7900/eureka/
-    registry-fetch-interval-seconds: 5

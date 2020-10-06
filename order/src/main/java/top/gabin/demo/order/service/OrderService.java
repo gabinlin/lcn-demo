@@ -18,9 +18,10 @@ public class OrderService {
     @Transactional
     @LcnTransaction
     public void order() {
-//        restTemplate.getForObject("")
         Order order = new Order();
         orderDao.save(order);
+        System.out.println(order.getId());
+        restTemplate.postForEntity("http://pay-service/pay", order, String.class);
     }
 
 }
