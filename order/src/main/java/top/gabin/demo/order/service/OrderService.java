@@ -21,7 +21,14 @@ public class OrderService {
         Order order = new Order();
         orderDao.save(order);
         System.out.println(order.getId());
+//        int a = 1 / 0;
         restTemplate.postForEntity("http://pay-service/pay", order, String.class);
     }
 
+    @Transactional
+    @LcnTransaction
+    public void testTCC() {
+        System.out.println("Order 测试TCC");
+        restTemplate.getForEntity("http://pay-service/pay", String.class);
+    }
 }
