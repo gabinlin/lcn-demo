@@ -1,11 +1,11 @@
 package top.gabin.demo.pay;
 
-import com.codingapi.txlcn.tc.config.EnableDistributedTransaction;
+import io.seata.config.springcloud.EnableSeataSpringConfig;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-@EnableDistributedTransaction
+@EnableSeataSpringConfig
 public class PayApplication {
 
 	public static void main(String[] args) {

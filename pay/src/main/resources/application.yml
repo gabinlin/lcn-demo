@@ -8,12 +8,21 @@ spring:
     password:
   jpa:
     generate-ddl: true
+  flyway:
+    enabled: true
 server:
   port: 9080
-tx-lcn:
-  client:
-    manager-address: 127.0.0.1:8070,127.0.0.1:8071
 eureka:
   client:
     service-url:
       defaultZone: http://localhost:7900/eureka/
+seata:
+  registry:
+    type: eureka
+    eureka:
+      service-url: ${eureka.client.service-url.defaultZone}
+  service:
+    vgroup-mapping: SEATA
+  config:
+    file:
+      name: file.conf

@@ -1,6 +1,6 @@
 package top.gabin.demo.order.service;
 
-import com.codingapi.txlcn.tc.annotation.LcnTransaction;
+import io.seata.spring.annotation.GlobalTransactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,7 +16,7 @@ public class OrderService {
     private RestTemplate restTemplate;
 
     @Transactional
-    @LcnTransaction
+    @GlobalTransactional
     public void order() {
         Order order = new Order();
         orderDao.save(order);
@@ -25,10 +25,4 @@ public class OrderService {
         restTemplate.postForEntity("http://pay-service/pay", order, String.class);
     }
 
-    @Transactional
-    @LcnTransaction
-    public void testTCC() {
-        System.out.println("Order 测试TCC");
-        restTemplate.getForEntity("http://pay-service/pay", String.class);
-    }
 }

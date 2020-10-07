@@ -7,14 +7,14 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="pay" />
-        <module name="eureka" />
         <module name="lcn-demo" />
-        <module name="tm" />
         <module name="order" />
+        <module name="eureka" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="demo" target="1.8" />
+      <module name="tm" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">

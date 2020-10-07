@@ -2,7 +2,6 @@ package top.gabin.demo.order.contoller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,12 +17,6 @@ public class OrderController {
     @PostMapping
     public ResponseEntity order() {
         orderService.order();
-        return ResponseEntity.ok("订单创建成功");
-    }
-
-    @GetMapping
-    public ResponseEntity testTCC() {
-        orderService.testTCC();
         return ResponseEntity.ok("订单创建成功");
     }
     
