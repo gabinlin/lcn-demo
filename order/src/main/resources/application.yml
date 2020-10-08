@@ -12,18 +12,3 @@ spring:
     enabled: true
 server:
   port: 9090
-eureka:
-  client:
-    service-url:
-      defaultZone: http://localhost:7900/eureka/
-    registry-fetch-interval-seconds: 5
-seata:
-  registry:
-    type: eureka
-    eureka:
-      service-url: ${eureka.client.service-url.defaultZone}
-  service:
-    vgroup-mapping: SEATA
-  config:
-    file:
-      name: file.conf

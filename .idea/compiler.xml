@@ -9,11 +9,11 @@
         <module name="pay" />
         <module name="lcn-demo" />
         <module name="order" />
-        <module name="eureka" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="demo" target="1.8" />
+      <module name="eureka" target="1.8" />
       <module name="tm" target="1.8" />
     </bytecodeTargetLevel>
   </component>

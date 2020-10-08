@@ -1,10 +1,12 @@
 package top.gabin.demo.order.contoller;
 
+import org.apache.rocketmq.client.exception.MQClientException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import top.gabin.demo.order.entity.Order;
 import top.gabin.demo.order.service.OrderService;
 
 @RestController
@@ -12,12 +14,11 @@ import top.gabin.demo.order.service.OrderService;
 public class OrderController {
 
     @Autowired
-    private OrderService orderService;
+    OrderService orderService;
 
-    @PostMapping
-    public ResponseEntity order() {
-        orderService.order();
-        return ResponseEntity.ok("订单创建成功");
+    @PostMapping("/create-order")
+    public void createOrder(@RequestBody Order order) throws MQClientException {
+        orderService.order(order);
     }
     
 }
